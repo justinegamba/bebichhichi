@@ -397,3 +397,39 @@ input::placeholder,
 textarea::placeholder {
   text-transform: lowercase;
 }
+/* layout: keep guestbook right of title box */
+.aligned-row {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  width: 100%;
+  margin-top: 60px;
+}
+
+/* make guestbook match title height & align nicely */
+.guestbook-box {
+  width: 300px;
+  height: auto;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 2px dashed #d4a5a5;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  font-family: 'Comic Sans MS', cursive;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* ensure title box uses full vertical space */
+.title-box {
+  flex: 1;
+  max-width: 700px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
