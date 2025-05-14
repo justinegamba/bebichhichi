@@ -225,3 +225,9 @@ body::before {
 ::-webkit-scrollbar-thumb:hover {
   background: #ff88aa;
 }
+.sub-caption {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 5px;
+  font-style: italic;
+}
