@@ -1,3 +1,4 @@
+/* Reset and Base Styles */
 html, body {
   margin: 0;
   padding: 0;
@@ -23,6 +24,7 @@ body::before {
   z-index: -1;
 }
 
+/* Decorations */
 .decorations {
   position: absolute;
   top: 10px;
@@ -44,30 +46,88 @@ body::before {
   }
 }
 
+/* Bug34ter Banner */
+.bug34ter-banner {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-bottom: 2px dashed #d4a5a5;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+}
+
+.bug34ter-banner h2 {
+  font-size: 1.5rem;
+  color: #88ccff;
+  margin: 0;
+}
+
+.bug34ter-banner .buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.bug34ter-banner .jelly-button {
+  text-decoration: none;
+  background-color: #ffd6e8;
+  color: #333;
+  padding: 10px 18px;
+  border-radius: 15px;
+  font-weight: bold;
+  transition: transform 0.3s;
+  border: 2px solid #ffb6c1;
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.bug34ter-banner .jelly-button:hover {
+  animation: jelly 0.6s ease;
+  background-color: #fff0f5;
+}
+
+/* Main Layout */
 .main-layout {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   padding: 100px 40px 60px;
   box-sizing: border-box;
   position: relative;
-  justify-content: flex-start;
+  align-items: center;
+  margin-top: 60px; /* To offset the fixed banner */
+}
+
+/* Aligned Row for Title and Guestbook */
+.aligned-row {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+  justify-content: center;
   align-items: flex-start;
 }
 
+/* Title Box */
 .title-box {
   flex: 1;
   max-width: 700px;
   width: 100%;
-  margin-right: auto;
-  margin-top: 60px;
   padding: 30px;
   box-sizing: border-box;
   overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 2px dashed #d4a5a5;
+  border-radius: 20px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
 }
 
 .title-box h1 {
   font-size: 3.5rem;
   color: #ff88aa;
+  margin: 0;
 }
 
 .caption {
@@ -84,75 +144,61 @@ body::before {
   font-style: italic;
 }
 
-.social-box {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  width: 250px;
-  padding: 20px;
-}
-
-.social-box h2 {
-  font-size: 1.5rem;
-  color: #88ccff;
-}
-
-.buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.box {
+/* Guestbook Box */
+.guestbook-box {
+  flex: 1;
+  max-width: 700px;
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.6);
   border: 2px dashed #d4a5a5;
   border-radius: 20px;
-  padding: 40px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
   backdrop-filter: blur(6px);
 }
 
-.box:hover {
-  transform: scale(1.01);
+.guestbook-box h2 {
+  font-size: 1.5rem;
+  color: #ff88aa;
+  margin: 0 0 10px 0;
 }
 
-/* Buttons */
-.jelly-button {
-  text-decoration: none;
+.guestbook-box input,
+.guestbook-box textarea {
+  width: 100%;
+  border: 2px dashed #ffb6c1;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-family: inherit;
+  background: #fff;
+}
+
+.guestbook-box button {
+  width: 100%;
   background-color: #ffd6e8;
-  color: #333;
-  padding: 10px 18px;
-  border-radius: 30px;
-  font-weight: bold;
-  transition: transform 0.3s;
   border: 2px solid #ffb6c1;
-  box-shadow: 2px 4px 10px rgba(0,0,0,0.1);
-  text-align: center;
+  border-radius: 30px;
+  padding: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: inherit;
 }
 
-.jelly-button:hover {
-  animation: jelly 0.6s ease;
-  background-color: #fff0f5;
+.guestbook-box button:hover {
+  background-color: #ffeef6;
 }
 
-@keyframes jelly {
-  0%, 100% {
-    transform: scale(1, 1);
-  }
-  25% {
-    transform: scale(0.9, 1.1);
-  }
-  50% {
-    transform: scale(1.1, 0.9);
-  }
-  75% {
-    transform: scale(0.95, 1.05);
-  }
+#guestbook-entries {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #555;
+  max-height: 200px;
+  overflow-y: auto;
 }
 
-/* Card Grid — back to 3-column layout */
+/* Card Grid */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -163,7 +209,6 @@ body::before {
   box-sizing: border-box;
 }
 
-/* Cards */
 .card-link {
   text-decoration: none;
   color: inherit;
@@ -202,52 +247,60 @@ body::before {
   color: #555;
 }
 
-/* Banner */
-.in-progress-banner {
+/* Cute Divider */
+.cute-divider {
   width: 100%;
-  background-color: rgba(255, 239, 186, 0.8);
   text-align: center;
-  padding: 10px;
-  font-weight: bold;
-  font-size: 1rem;
-  color: #b07000;
-  border-bottom: 2px dashed #f6b73c;
-  position: fixed;
-  top: 0;
-  z-index: 999;
+  font-size: 1.5rem;
+  color: #ff88aa;
+  margin: 20px 0;
+  animation: sparkle 2s infinite;
 }
 
-/* 🍬 Cute Pastel Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
 }
-::-webkit-scrollbar-track {
-  background: #ffeef6;
-  border-radius: 5px;
+
+/* Secret Admin Button */
+.secret-admin-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ffd6e8;
+  border: 2px solid #ffb6c1;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 1000;
 }
-::-webkit-scrollbar-thumb {
-  background: #ffb6c1;
-  border-radius: 5px;
+
+.secret-admin-btn:hover {
+  background-color: #ffeef6;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: #ff88aa;
-}
-.guestbook-box {
-  position: absolute;
-  top: 300px;
-  right: 30px;
-  width: 300px;
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.6);
+
+/* Admin Login Popup */
+.admin-login-popup {
+  display: none;
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
   border: 2px dashed #d4a5a5;
   border-radius: 20px;
+  padding: 20px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  font-family: 'Comic Sans MS', cursive;
-  z-index: 10;
+  z-index: 1001;
 }
 
-.guestbook-box input,
-.guestbook-box textarea {
+.admin-login-popup input {
   width: 100%;
   border: 2px dashed #ffb6c1;
   border-radius: 10px;
@@ -257,7 +310,7 @@ body::before {
   background: #fff;
 }
 
-.guestbook-box button {
+.admin-login-popup button {
   width: 100%;
   background-color: #ffd6e8;
   border: 2px solid #ffb6c1;
@@ -266,294 +319,9 @@ body::before {
   font-weight: bold;
   cursor: pointer;
   font-family: inherit;
-}
-
-.guestbook-box button:hover {
-  background-color: #ffeef6;
-}
-
-#guestbook-entries {
-  margin-top: 15px;
-  font-size: 0.9rem;
-  color: #555;
-  max-height: 200px;
-  overflow-y: auto;
-}
-/* Adjusted guestbook layout: sit next to title box */
-.guestbook-box {
-  width: 280px;
-  margin-left: 40px;
-  background-color: rgba(255, 255, 255, 0.6);
-  border: 2px dashed #d4a5a5;
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  font-family: 'Comic Sans MS', cursive;
-  display: flex;
-  flex-direction: column;
-  z-index: 2;
-  position: relative;
-}
-
-/* 🕵️‍♀️ Secret Admin Button - fixed in bottom right */
-.secret-admin-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #ffd6e8;
-  border: 2px solid #ffb6c1;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  font-size: 1.4rem;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  z-index: 999;
-}
-
-/* Hidden popup for admin login */
-.admin-login-popup {
-  display: none;
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  background: rgba(255, 255, 255, 0.95);
-  border: 2px dashed #d4a5a5;
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
-  width: 250px;
-  font-family: 'Comic Sans MS', cursive;
-}
-
-.popup-box input {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 8px;
-  border: 2px dashed #ffb6c1;
-  border-radius: 10px;
-  font-family: inherit;
-  background-color: #fff;
-}
-
-.popup-box button {
-  width: 100%;
   margin-top: 5px;
-  padding: 8px;
-  border: 2px solid #ffb6c1;
-  background-color: #ffd6e8;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  font-family: inherit;
 }
 
-.popup-box button:hover {
+.admin-login-popup button:hover {
   background-color: #ffeef6;
-}
-/* center title + guestbook horizontally */
-.centered-row {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  width: 100%;
-  gap: 40px;
-}
-
-/* match guestbook height to title-box */
-.title-box {
-  flex: 1;
-  max-width: 700px;
-  width: 100%;
-  margin-top: 60px;
-  padding: 30px;
-  box-sizing: border-box;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.guestbook-box {
-  flex: 1;
-  max-width: 300px;
-  height: 100%;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  background-color: rgba(255, 255, 255, 0.6);
-  border: 2px dashed #d4a5a5;
-  border-radius: 20px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  font-family: 'Comic Sans MS', cursive;
-  z-index: 10;
-}
-.guestbook-box h2,
-.guestbook-box button,
-.popup-box h2,
-.popup-box button,
-input::placeholder,
-textarea::placeholder {
-  text-transform: lowercase;
-}
-/* layout: keep guestbook right of title box */
-.aligned-row {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 40px;
-  width: 100%;
-  margin-top: 60px;
-}
-
-/* make guestbook match title height & align nicely */
-.guestbook-box {
-  width: 300px;
-  height: auto;
-  flex-shrink: 0;
-  background-color: rgba(255, 255, 255, 0.6);
-  border: 2px dashed #d4a5a5;
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  font-family: 'Comic Sans MS', cursive;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-/* ensure title box uses full vertical space */
-.title-box {
-  flex: 1;
-  max-width: 700px;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  box-sizing: border-box;
-}
-.sparkle-divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  color: #ffb6c1;
-  animation: sparkleSpin 2s infinite ease-in-out;
-  padding: 0 10px;
-  transform-origin: center;
-  font-family: 'Comic Sans MS', cursive;
-  user-select: none;
-}
-
-@keyframes sparkleSpin {
-  0%   { transform: rotate(0deg) scale(1); opacity: 0.8; }
-  50%  { transform: rotate(10deg) scale(1.2); opacity: 1; }
-  100% { transform: rotate(0deg) scale(1); opacity: 0.8; }
-}
-.bug34ter-banner {
-  width: 100%;
-  padding: 15px 20px;
-  background-color: rgba(255, 255, 255, 0.7);
-  border-bottom: 2px dashed #ffb6c1;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  font-family: 'Comic Sans MS', cursive;
-  position: relative;
-  z-index: 5;
-}
-
-.bug34ter-banner h2 {
-  margin: 0;
-  font-size: 1.3rem;
-  color: #ff88aa;
-}
-
-.bug34ter-banner .buttons {
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.bug34ter-banner .jelly-button {
-  font-size: 0.9rem;
-  padding: 8px 14px;
-}
-/* 🪄 Floating bug34ter box */
-.bug34ter-banner {
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: auto;
-  max-width: 90%;
-  background-color: rgba(255, 255, 255, 0.95);
-  padding: 16px 20px;
-  border: 2px dashed #ffb6c1;
-  border-radius: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  z-index: 999;
-  text-align: center;
-  font-family: 'Comic Sans MS', cursive;
-}
-
-.bug34ter-banner h2 {
-  margin: 0 0 10px;
-  font-size: 1.2rem;
-  color: #ff88aa;
-}
-
-.bug34ter-banner {
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90%;
-  max-width: 1000px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.95);
-  padding: 12px 20px;
-  border: 2px dashed #ffb6c1;
-  border-radius: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  z-index: 999;
-  font-family: 'Comic Sans MS', cursive;
-}
-
-.bug-left h2 {
-  margin: 0;
-  font-size: 1.2rem;
-  color: #ff88aa;
-  white-space: nowrap;
-}
-
-.bug-buttons {
-  display: flex;
-  gap: 12px;
-}
-
-.bug-buttons a {
-  width: 45px;
-  height: 45px;
-  background-color: #ffd6e8;
-  color: #333;
-  font-size: 1.2rem;
-  font-weight: bold;
-  border-radius: 12px;
-  border: 2px solid #ffb6c1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.05);
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-.bug-buttons a:hover {
-  background-color: #ffeef6;
-  transform: scale(1.05);
 }
