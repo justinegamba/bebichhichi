@@ -279,3 +279,76 @@ body::before {
   max-height: 200px;
   overflow-y: auto;
 }
+/* Adjusted guestbook layout: sit next to title box */
+.guestbook-box {
+  width: 280px;
+  margin-left: 40px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 2px dashed #d4a5a5;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  font-family: 'Comic Sans MS', cursive;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  position: relative;
+}
+
+/* 🕵️‍♀️ Secret Admin Button - fixed in bottom right */
+.secret-admin-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ffd6e8;
+  border: 2px solid #ffb6c1;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 999;
+}
+
+/* Hidden popup for admin login */
+.admin-login-popup {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px dashed #d4a5a5;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  width: 250px;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.popup-box input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 2px dashed #ffb6c1;
+  border-radius: 10px;
+  font-family: inherit;
+  background-color: #fff;
+}
+
+.popup-box button {
+  width: 100%;
+  margin-top: 5px;
+  padding: 8px;
+  border: 2px solid #ffb6c1;
+  background-color: #ffd6e8;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.popup-box button:hover {
+  background-color: #ffeef6;
+}
