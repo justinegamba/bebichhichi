@@ -8,81 +8,82 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Floating decorations -->
   <div class="decorations">
     ☁️ 🌟 (๑˘︶˘๑) 💖 ☆彡 ✨ 🌈 (｡♥‿♥｡) 🐣 💫 🎀
   </div>
-<div class="in-progress-banner">🛠 This site is in progress! 🛠</div>
+  <div class="in-progress-banner">🛠 This site is in progress! 🛠</div>
 
-  <!-- Main Layout Container -->
   <div class="main-layout">
+    
+    <!-- Guestbook Box -->
     <div class="box guestbook-box">
-  <h2>💌 Guestbook</h2>
-  <input type="text" id="guest-name" placeholder="Name (optional)">
-  <textarea id="guest-message" rows="3" placeholder="Your message..."></textarea>
-  <button onclick="submitGuestbook()">Leave a mark 💖</button>
-  <div id="guestbook-entries"></div>
-</div>
+      <h2>💌 Guestbook</h2>
+      <input type="text" id="guest-name" placeholder="Name (🌸 optional)">
+      <textarea id="guest-message" rows="3" placeholder="Write a cute message 🐰🎀..."></textarea>
+      <button onclick="submitGuestbook()">Leave a mark 💖</button>
+      <div id="guestbook-entries"></div>
+      <button id="load-more" onclick="loadMoreEntries()">Load more 💬</button>
+    </div>
 
-    <!-- Left main title -->
+    <!-- Admin Auth Box -->
+    <div class="box auth-box">
+      <h2>🔐 Admin Login</h2>
+      <input type="email" id="login-email" placeholder="Enter admin email">
+      <input type="password" id="login-password" placeholder="Password">
+      <button onclick="adminLogin()">Login</button>
+      <button onclick="logout()" style="display:none" id="logout-btn">Logout</button>
+    </div>
+
+    <!-- Main Title + Cards -->
     <div class="box title-box">
       <h1>bebichhichi! 🌸</h1>
       <p class="caption">a gift from an angel (´｡• ᵕ •｡`) ♡</p>
       <p class="sub-caption">welcome to my website! (｡･ω･｡)ﾉ♡</p>
+
       <div class="card-grid">
-  <!-- Card 1 - Strawberry Pair -->
-  <a href="https://www.instagram.com/p/DIilGz8xEW-/?img_index=1" target="_blank" class="card-link">
-    <div class="card">
-      <img src="images/strawberrypair.png" alt="Strawberry Baby Pair">
-      <p>strawberry 🍓👶💕</p>
-    </div>
-  </a>
-
-  <!-- Card 2 - Matcha -->
-  <a href="https://www.instagram.com/p/DEt4u8ixveK/" target="_blank" class="card-link">
-    <div class="card">
-      <img src="images/matcha.PNG" alt="Matcha Baby">
-      <p>Matcha 🌿💚</p>
-    </div>
-  </a>
-
-  <!-- Card 3 - Puppy -->
-  <a href="https://www.instagram.com/p/DEuUB9xRp7h/?img_index=5" target="_blank" class="card-link">
-    <div class="card">
-      <img src="images/puppy.PNG" alt="Puppy Baby">
-      <p>Puppy 🐶💕</p>
-    </div>
-  </a>
-
-  <!-- Card 4 - Pochacco -->
-  <a href="https://www.instagram.com/p/DFy9JpmxHN0/" target="_blank" class="card-link">
-    <div class="card">
-      <img src="images/pochacco.PNG" alt="Pochacco Baby">
-      <p>Pochacco 🐾🍭</p>
-    </div>
-  </a>
-
-  <!-- Card 5 - Panda -->
-  <a href="https://www.instagram.com/p/DFy86vWxQ_M/" target="_blank" class="card-link">
-    <div class="card">
-      <img src="images/panda.PNG" alt="Panda Baby">
-      <p>Panda 🐼💖</p>
-    </div>
-  </a>
-
-  <!-- Card 6 - Tanuki -->
-  <a href="https://www.instagram.com/p/DEuUB9xRp7h/?img_index=6" target="_blank" class="card-link">
-    <div class="card">
-      <img src="images/tanuki.PNG" alt="Tanuki Baby">
-      <p>Tanuki 🦝🍂</p>
-    </div>
-  </a>
-</div>
-
-
+        <!-- All your cards go here -->
+        <!-- Card 1 -->
+        <a href="https://www.instagram.com/p/DIilGz8xEW-/?img_index=1" target="_blank" class="card-link">
+          <div class="card">
+            <img src="images/strawberrypair.png" alt="Strawberry Baby Pair">
+            <p>strawberry 🍓👶💕</p>
+          </div>
+        </a>
+        <!-- Repeat other cards -->
+        <a href="https://www.instagram.com/p/DEt4u8ixveK/" target="_blank" class="card-link">
+          <div class="card">
+            <img src="images/matcha.PNG" alt="Matcha Baby">
+            <p>Matcha 🌿💚</p>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/p/DEuUB9xRp7h/?img_index=5" target="_blank" class="card-link">
+          <div class="card">
+            <img src="images/puppy.PNG" alt="Puppy Baby">
+            <p>Puppy 🐶💕</p>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/p/DFy9JpmxHN0/" target="_blank" class="card-link">
+          <div class="card">
+            <img src="images/pochacco.PNG" alt="Pochacco Baby">
+            <p>Pochacco 🐾🍭</p>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/p/DFy86vWxQ_M/" target="_blank" class="card-link">
+          <div class="card">
+            <img src="images/panda.PNG" alt="Panda Baby">
+            <p>Panda 🐼💖</p>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/p/DEuUB9xRp7h/?img_index=6" target="_blank" class="card-link">
+          <div class="card">
+            <img src="images/tanuki.PNG" alt="Tanuki Baby">
+            <p>Tanuki 🦝🍂</p>
+          </div>
+        </a>
+      </div>
     </div>
 
-    <!-- Top-right social box -->
+    <!-- Social Box -->
     <div class="box social-box">
       <h2>bug34ter (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧</h2>
       <div class="buttons">
@@ -92,36 +93,96 @@
       </div>
     </div>
   </div>
+
+  <!-- Supabase & Guestbook Script -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script>
+    const supabaseUrl = 'https://kzmdnctqosevqnhypblp.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt6bWRuY3Rxb3NldnFuaHlwYmxwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxOTg2MjAsImV4cCI6MjA2Mjc3NDYyMH0.ff8OaEPbu8kxt6ZhP4Bco7Xrx9J4fX9ESUo8KzlcvuQ';
+    const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+    const ADMIN_EMAIL = "gamba.jfg@gmail.com"; // 🔐 replace this with your admin email
+    let isAdminUser = false;
+    let currentOffset = 0;
+    const limit = 5;
+
+    async function adminLogin() {
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+
+      if (error) {
+        alert("Login failed!");
+        return;
+      }
+
+      const { data: sessionData } = await supabase.auth.getSession();
+      const userEmail = sessionData.session?.user?.email;
+
+      if (userEmail === ADMIN_EMAIL) {
+        isAdminUser = true;
+        document.getElementById('logout-btn').style.display = 'block';
+        alert("Logged in as admin!");
+        loadEntries(true);
+      } else {
+        alert("Not an admin.");
+      }
+    }
+
+    async function logout() {
+      await supabase.auth.signOut();
+      isAdminUser = false;
+      document.getElementById('logout-btn').style.display = 'none';
+      loadEntries(true);
+    }
+
+    function isAdmin() {
+      return isAdminUser;
+    }
+
+    async function submitGuestbook() {
+      const name = document.getElementById('guest-name').value.trim() || 'Anonymous';
+      const message = document.getElementById('guest-message').value.trim();
+      if (!message) return;
+
+      await supabase.from('guestbook').insert([{ name, message }]);
+      document.getElementById('guest-message').value = '';
+      document.getElementById('guest-name').value = '';
+      loadEntries(true);
+    }
+
+    async function deleteEntry(id) {
+      if (!isAdmin()) return;
+      await supabase.from('guestbook').delete().eq('id', id);
+      loadEntries(true);
+    }
+
+    async function loadEntries(reset = false) {
+      if (reset) currentOffset = 0;
+      const { data } = await supabase
+        .from('guestbook')
+        .select('*')
+        .order('created_at', { ascending: false })
+        .range(currentOffset, currentOffset + limit - 1);
+
+      const container = document.getElementById('guestbook-entries');
+      if (reset) container.innerHTML = '';
+
+      data.forEach(entry => {
+        const div = document.createElement('div');
+        div.innerHTML = `<strong>${entry.name}</strong>: ${entry.message} ${isAdmin() ? `<button onclick="deleteEntry(${entry.id})">🗑️</button>` : ''}`;
+        container.appendChild(div);
+      });
+
+      currentOffset += limit;
+    }
+
+    function loadMoreEntries() {
+      loadEntries();
+    }
+
+    loadEntries();
+  </script>
 </body>
 </html>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-<script>
-  const supabaseUrl = 'https://kzmdnctqosevqnhypblp.supabase.co';
-  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt6bWRuY3Rxb3NldnFuaHlwYmxwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxOTg2MjAsImV4cCI6MjA2Mjc3NDYyMH0.ff8OaEPbu8kxt6ZhP4Bco7Xrx9J4fX9ESUo8KzlcvuQ';
-  const supabase = supabase.createClient(supabaseUrl, supabaseKey);
-
-  async function submitGuestbook() {
-    const name = document.getElementById('guest-name').value.trim() || 'Anonymous';
-    const message = document.getElementById('guest-message').value.trim();
-    if (!message) return;
-
-    await supabase.from('guestbook').insert([{ name, message }]);
-    document.getElementById('guest-message').value = '';
-    document.getElementById('guest-name').value = '';
-    loadEntries();
-  }
-
-  async function loadEntries() {
-    const { data } = await supabase
-      .from('guestbook')
-      .select('*')
-      .order('created_at', { ascending: false })
-      .limit(10);
-    const container = document.getElementById('guestbook-entries');
-    container.innerHTML = data.map(entry =>
-      `<div><strong>${entry.name}</strong>: ${entry.message}</div>`
-    ).join('');
-  }
-
-  loadEntries();
-</script>
