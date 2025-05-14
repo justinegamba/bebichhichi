@@ -92,11 +92,29 @@ body {
 /* Shared box styling */
 .box {
   background-color: rgba(255, 255, 255, 0.6);
-  border: 2px dashed #d4a5a5;
-  border-radius: 25px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  z-index: 2;
+  border: 4px dashed #d4a5a5;
+  border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%; /* Wavy cloudy shape */
+  padding: 40px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  animation: floatBox 6s ease-in-out infinite;
+  transition: transform 0.3s;
+  backdrop-filter: blur(6px);
 }
+
+/* Optional hover float effect */
+.box:hover {
+  transform: scale(1.01);
+}
+
+@keyframes floatBox {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
 
 /* Buttons */
 .jelly-button {
