@@ -202,8 +202,41 @@ body {
   top: 0;
   z-index: 999;
 }
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 30px;
+}
+
 .card-link {
   text-decoration: none;
   color: inherit;
   display: block;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 2px dashed #ffb6c1;
+  border-radius: 20px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #555;
 }
