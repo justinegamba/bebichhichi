@@ -149,9 +149,12 @@ html, body {
 /* Card Grid - Scaled to Fit Box */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
   margin-top: 30px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Cards */
@@ -176,8 +179,10 @@ html, body {
 }
 
 .card img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
+  max-height: 120px;
+  object-fit: cover;
   border-radius: 15px;
   margin-bottom: 8px;
 }
