@@ -202,3 +202,8 @@ body {
   top: 0;
   z-index: 999;
 }
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
