@@ -54,16 +54,17 @@ body::before {
   transform: translateX(-50%);
   width: 100%;
   max-width: 1000px;
-  background-color: rgba(255, 255, 255, 0.95);
-  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.9);
   border-bottom: 2px dashed #ffb6c1;
-  border-radius: 0 0 20px 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-  z-index: 1000;
+  padding: 12px 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 20px;
+  z-index: 1000;
   font-family: 'Comic Sans MS', cursive;
+  flex-wrap: wrap;
 }
 
 .bug34ter-banner h2 {
@@ -73,14 +74,18 @@ body::before {
   white-space: nowrap;
 }
 
+.bug-buttons {
+  display: flex;
+  gap: 10px;
+}
+
 .bug-buttons a {
   width: 40px;
   height: 40px;
   background-color: #ffd6e8;
   color: #333;
   font-size: 1.2rem;
-  font-weight: bold;
-  border-radius: 10px;
+  border-radius: 12px;
   border: 2px solid #ffb6c1;
   display: flex;
   align-items: center;
@@ -94,7 +99,6 @@ body::before {
   background-color: #ffeef6;
   transform: scale(1.05);
 }
-
 /* Main Layout */
 .main-layout {
   display: flex;
@@ -394,4 +398,21 @@ body::before {
   overflow-y: auto;
   flex: 1;
   max-height: 200px;
+}
+.main-layout {
+  padding-top: 120px; /* adjust if needed */
+}
+.bug34ter-banner {
+  animation: dropIn 0.8s ease;
+}
+
+@keyframes dropIn {
+  from {
+    transform: translateY(-20px) translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) translateX(-50%);
+    opacity: 1;
+  }
 }
