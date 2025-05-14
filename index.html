@@ -94,3 +94,34 @@
   </div>
 </body>
 </html>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script>
+  const supabaseUrl = 'https://kzmdnctqosevqnhypblp.supabase.co';
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt6bWRuY3Rxb3NldnFuaHlwYmxwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxOTg2MjAsImV4cCI6MjA2Mjc3NDYyMH0.ff8OaEPbu8kxt6ZhP4Bco7Xrx9J4fX9ESUo8KzlcvuQ';
+  const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+  async function submitGuestbook() {
+    const name = document.getElementById('guest-name').value.trim() || 'Anonymous';
+    const message = document.getElementById('guest-message').value.trim();
+    if (!message) return;
+
+    await supabase.from('guestbook').insert([{ name, message }]);
+    document.getElementById('guest-message').value = '';
+    document.getElementById('guest-name').value = '';
+    loadEntries();
+  }
+
+  async function loadEntries() {
+    const { data } = await supabase
+      .from('guestbook')
+      .select('*')
+      .order('created_at', { ascending: false })
+      .limit(10);
+    const container = document.getElementById('guestbook-entries');
+    container.innerHTML = data.map(entry =>
+      `<div><strong>${entry.name}</strong>: ${entry.message}</div>`
+    ).join('');
+  }
+
+  loadEntries();
+</script>
