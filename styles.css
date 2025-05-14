@@ -505,21 +505,49 @@ textarea::placeholder {
   color: #ff88aa;
 }
 
+.bug34ter-banner {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 12px 20px;
+  border: 2px dashed #ffb6c1;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.bug-left h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #ff88aa;
+  white-space: nowrap;
+}
+
 .bug-buttons {
   display: flex;
   gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
 }
 
 .bug-buttons a {
+  width: 45px;
+  height: 45px;
   background-color: #ffd6e8;
   color: #333;
-  padding: 12px 18px;
-  font-size: 0.95rem;
+  font-size: 1.2rem;
   font-weight: bold;
-  border-radius: 20px;
+  border-radius: 12px;
   border: 2px solid #ffb6c1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.05);
   transition: background-color 0.3s, transform 0.2s;
@@ -528,7 +556,4 @@ textarea::placeholder {
 .bug-buttons a:hover {
   background-color: #ffeef6;
   transform: scale(1.05);
-}
-.main-layout {
-  padding: 160px 40px 60px;
 }
