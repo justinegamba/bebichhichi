@@ -40,7 +40,7 @@ body {
 .main-layout {
   display: flex;
   height: 100%;
-  padding: 40px;
+  padding: 80px 40px 40px; /* extra top padding */
   box-sizing: border-box;
   position: relative;
   justify-content: flex-start;
@@ -92,8 +92,8 @@ body {
 /* Shared box styling */
 .box {
   background-color: rgba(255, 255, 255, 0.6);
-  border: 4px dashed #d4a5a5;
-  border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%; /* Wavy cloudy shape */
+  border: 2px dashed #d4a5a5;
+  border-radius: 20px;
   padding: 40px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
   animation: floatBox 6s ease-in-out infinite;
@@ -188,4 +188,17 @@ body {
   border-style: dashed;
   border-color: #ccc;
   height: 140px;
+}
+.in-progress-banner {
+  width: 100%;
+  background-color: rgba(255, 239, 186, 0.8);
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #b07000;
+  border-bottom: 2px dashed #f6b73c;
+  position: fixed;
+  top: 0;
+  z-index: 999;
 }
