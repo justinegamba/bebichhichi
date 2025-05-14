@@ -1,11 +1,13 @@
-body {
+html, body {
   margin: 0;
+  padding: 0;
   font-family: 'Comic Sans MS', cursive, sans-serif;
   background: linear-gradient(135deg, #ffe4ec, #e4f8ff, #fffacc, #eaffea);
   background-size: 400% 400%;
   animation: gradientShift 20s ease infinite;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
   position: relative;
 }
 
@@ -39,8 +41,8 @@ body {
 /* Main layout setup */
 .main-layout {
   display: flex;
-  height: 100%;
-  padding: 80px 40px 40px; /* extra top padding */
+  flex-wrap: wrap;
+  padding: 100px 40px 60px; /* top padding for banner */
   box-sizing: border-box;
   position: relative;
   justify-content: flex-start;
@@ -52,7 +54,7 @@ body {
   flex: 1;
   max-width: 600px;
   margin-right: auto;
-  margin-top: 100px;
+  margin-top: 60px;
   padding: 40px;
 }
 
@@ -101,7 +103,6 @@ body {
   backdrop-filter: blur(6px);
 }
 
-/* Optional hover float effect */
 .box:hover {
   transform: scale(1.01);
 }
@@ -114,7 +115,6 @@ body {
     transform: translateY(-10px);
   }
 }
-
 
 /* Buttons */
 .jelly-button {
@@ -149,59 +149,8 @@ body {
     transform: scale(0.95, 1.05);
   }
 }
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-top: 30px;
-}
 
-.card {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 2px dashed #ffb6c1;
-  border-radius: 20px;
-  padding: 10px;
-  text-align: center;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s;
-}
-
-.card img {
-  max-width: 100%;
-  border-radius: 15px;
-  margin-bottom: 8px;
-}
-
-.card p {
-  font-size: 0.9rem;
-  color: #555;
-}
-
-/* Optional hover effect */
-.card:hover {
-  transform: scale(1.02);
-}
-
-/* Empty card style */
-.card.placeholder {
-  background-color: rgba(255, 255, 255, 0.3);
-  border-style: dashed;
-  border-color: #ccc;
-  height: 140px;
-}
-.in-progress-banner {
-  width: 100%;
-  background-color: rgba(255, 239, 186, 0.8);
-  text-align: center;
-  padding: 10px;
-  font-weight: bold;
-  font-size: 1rem;
-  color: #b07000;
-  border-bottom: 2px dashed #f6b73c;
-  position: fixed;
-  top: 0;
-  z-index: 999;
-}
+/* Cards */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -223,20 +172,3 @@ body {
   text-align: center;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s;
-}
-
-.card:hover {
-  transform: scale(1.03);
-}
-
-.card img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 15px;
-  margin-bottom: 8px;
-}
-
-.card p {
-  font-size: 0.9rem;
-  color: #555;
-}
