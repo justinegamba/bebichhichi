@@ -4,13 +4,9 @@ body {
   background: linear-gradient(135deg, #ffe4ec, #e4f8ff, #fffacc, #eaffea);
   background-size: 400% 400%;
   animation: gradientShift 20s ease infinite;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   height: 100vh;
-  position: relative;
   overflow: hidden;
+  position: relative;
 }
 
 @keyframes gradientShift {
@@ -28,6 +24,7 @@ body {
   opacity: 0.8;
   pointer-events: none;
   animation: floatDecor 12s ease-in-out infinite;
+  z-index: 1;
 }
 
 @keyframes floatDecor {
@@ -39,24 +36,28 @@ body {
   }
 }
 
-.container {
-  text-align: center;
-  padding: 20px;
-  z-index: 1;
+/* Main layout setup */
+.main-layout {
+  display: flex;
+  height: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+  position: relative;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
-.box {
-  background-color: rgba(255, 255, 255, 0.6);
-  border: 2px dashed #d4a5a5;
-  border-radius: 25px;
-  padding: 30px;
-  margin: 20px auto;
-  max-width: 400px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+/* Title box on left */
+.title-box {
+  flex: 1;
+  max-width: 600px;
+  margin-right: auto;
+  margin-top: 100px;
+  padding: 40px;
 }
 
 .title-box h1 {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   color: #ff88aa;
 }
 
@@ -64,30 +65,51 @@ body {
   font-style: italic;
   color: #888;
   margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+/* Social box top-right */
+.social-box {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 250px;
+  padding: 20px;
 }
 
 .social-box h2 {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: #88ccff;
 }
 
 .buttons {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
   margin-top: 15px;
 }
 
+/* Shared box styling */
+.box {
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 2px dashed #d4a5a5;
+  border-radius: 25px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+/* Buttons */
 .jelly-button {
   text-decoration: none;
   background-color: #ffd6e8;
   color: #333;
-  padding: 12px 20px;
+  padding: 10px 18px;
   border-radius: 30px;
   font-weight: bold;
   transition: transform 0.3s;
   border: 2px solid #ffb6c1;
   box-shadow: 2px 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
 }
 
 .jelly-button:hover {
