@@ -15,71 +15,62 @@
 
   <div class="main-layout">
     
-    <!-- Guestbook Box -->
-    <div class="box guestbook-box">
-      <h2>💌 Guestbook</h2>
-      <input type="text" id="guest-name" placeholder="Name (🌸 optional)">
-      <textarea id="guest-message" rows="3" placeholder="Write a cute message 🐰🎀..."></textarea>
-      <button onclick="submitGuestbook()">Leave a mark 💖</button>
-      <div id="guestbook-entries"></div>
-      <button id="load-more" onclick="loadMoreEntries()">Load more 💬</button>
-    </div>
+    <!-- Title + Guestbook as a Row -->
+    <div style="display: flex; align-items: flex-start;">
+      <!-- Main Title -->
+      <div class="box title-box">
+        <h1>bebichhichi! 🌸</h1>
+        <p class="caption">a gift from an angel (´｡• ᵕ •｡`) ♡</p>
+        <p class="sub-caption">welcome to my website! (｡･ω･｡)ﾉ♡</p>
 
-    <!-- Admin Auth Box -->
-    <div class="box auth-box">
-      <h2>🔐 Admin Login</h2>
-      <input type="email" id="login-email" placeholder="Enter admin email">
-      <input type="password" id="login-password" placeholder="Password">
-      <button onclick="adminLogin()">Login</button>
-      <button onclick="logout()" style="display:none" id="logout-btn">Logout</button>
-    </div>
+        <div class="card-grid">
+          <a href="https://www.instagram.com/p/DIilGz8xEW-/?img_index=1" target="_blank" class="card-link">
+            <div class="card">
+              <img src="images/strawberrypair.png" alt="Strawberry Baby Pair">
+              <p>strawberry 🍓👶💕</p>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/p/DEt4u8ixveK/" target="_blank" class="card-link">
+            <div class="card">
+              <img src="images/matcha.PNG" alt="Matcha Baby">
+              <p>Matcha 🌿💚</p>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/p/DEuUB9xRp7h/?img_index=5" target="_blank" class="card-link">
+            <div class="card">
+              <img src="images/puppy.PNG" alt="Puppy Baby">
+              <p>Puppy 🐶💕</p>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/p/DFy9JpmxHN0/" target="_blank" class="card-link">
+            <div class="card">
+              <img src="images/pochacco.PNG" alt="Pochacco Baby">
+              <p>Pochacco 🐾🍭</p>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/p/DFy86vWxQ_M/" target="_blank" class="card-link">
+            <div class="card">
+              <img src="images/panda.PNG" alt="Panda Baby">
+              <p>Panda 🐼💖</p>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/p/DEuUB9xRp7h/?img_index=6" target="_blank" class="card-link">
+            <div class="card">
+              <img src="images/tanuki.PNG" alt="Tanuki Baby">
+              <p>Tanuki 🦝🍂</p>
+            </div>
+          </a>
+        </div>
+      </div>
 
-    <!-- Main Title + Cards -->
-    <div class="box title-box">
-      <h1>bebichhichi! 🌸</h1>
-      <p class="caption">a gift from an angel (´｡• ᵕ •｡`) ♡</p>
-      <p class="sub-caption">welcome to my website! (｡･ω･｡)ﾉ♡</p>
-
-      <div class="card-grid">
-        <!-- All your cards go here -->
-        <!-- Card 1 -->
-        <a href="https://www.instagram.com/p/DIilGz8xEW-/?img_index=1" target="_blank" class="card-link">
-          <div class="card">
-            <img src="images/strawberrypair.png" alt="Strawberry Baby Pair">
-            <p>strawberry 🍓👶💕</p>
-          </div>
-        </a>
-        <!-- Repeat other cards -->
-        <a href="https://www.instagram.com/p/DEt4u8ixveK/" target="_blank" class="card-link">
-          <div class="card">
-            <img src="images/matcha.PNG" alt="Matcha Baby">
-            <p>Matcha 🌿💚</p>
-          </div>
-        </a>
-        <a href="https://www.instagram.com/p/DEuUB9xRp7h/?img_index=5" target="_blank" class="card-link">
-          <div class="card">
-            <img src="images/puppy.PNG" alt="Puppy Baby">
-            <p>Puppy 🐶💕</p>
-          </div>
-        </a>
-        <a href="https://www.instagram.com/p/DFy9JpmxHN0/" target="_blank" class="card-link">
-          <div class="card">
-            <img src="images/pochacco.PNG" alt="Pochacco Baby">
-            <p>Pochacco 🐾🍭</p>
-          </div>
-        </a>
-        <a href="https://www.instagram.com/p/DFy86vWxQ_M/" target="_blank" class="card-link">
-          <div class="card">
-            <img src="images/panda.PNG" alt="Panda Baby">
-            <p>Panda 🐼💖</p>
-          </div>
-        </a>
-        <a href="https://www.instagram.com/p/DEuUB9xRp7h/?img_index=6" target="_blank" class="card-link">
-          <div class="card">
-            <img src="images/tanuki.PNG" alt="Tanuki Baby">
-            <p>Tanuki 🦝🍂</p>
-          </div>
-        </a>
+      <!-- Guestbook Box -->
+      <div class="box guestbook-box">
+        <h2>💌 Guestbook</h2>
+        <input type="text" id="guest-name" placeholder="Name (🌸 optional)">
+        <textarea id="guest-message" rows="3" placeholder="Write a cute message 🐰🎀..."></textarea>
+        <button onclick="submitGuestbook()">Leave a mark 💖</button>
+        <div id="guestbook-entries"></div>
+        <button id="load-more" onclick="loadMoreEntries()">Load more 💬</button>
       </div>
     </div>
 
@@ -94,6 +85,21 @@
     </div>
   </div>
 
+  <!-- Secret Admin Button -->
+  <button class="secret-admin-btn" onclick="toggleAdminPopup()">🔐</button>
+
+  <!-- Admin Login Popup -->
+  <div class="admin-login-popup" id="admin-popup">
+    <div class="popup-box">
+      <h2>🔐 Admin Login</h2>
+      <input type="email" id="login-email" placeholder="Enter admin email">
+      <input type="password" id="login-password" placeholder="Password">
+      <button onclick="adminLogin()">Login</button>
+      <button onclick="logout()" style="display:none" id="logout-btn">Logout</button>
+      <button onclick="closeAdminPopup()">❌</button>
+    </div>
+  </div>
+
   <!-- Supabase & Guestbook Script -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <script>
@@ -101,7 +107,7 @@
     const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt6bWRuY3Rxb3NldnFuaHlwYmxwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxOTg2MjAsImV4cCI6MjA2Mjc3NDYyMH0.ff8OaEPbu8kxt6ZhP4Bco7Xrx9J4fX9ESUo8KzlcvuQ';
     const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-    const ADMIN_EMAIL = "gamba.jfg@gmail.com"; // 🔐 replace this with your admin email
+    const ADMIN_EMAIL = "gamba.jfg@gmail.com";
     let isAdminUser = false;
     let currentOffset = 0;
     const limit = 5;
@@ -124,6 +130,7 @@
         isAdminUser = true;
         document.getElementById('logout-btn').style.display = 'block';
         alert("Logged in as admin!");
+        closeAdminPopup();
         loadEntries(true);
       } else {
         alert("Not an admin.");
@@ -180,6 +187,15 @@
 
     function loadMoreEntries() {
       loadEntries();
+    }
+
+    function toggleAdminPopup() {
+      const popup = document.getElementById('admin-popup');
+      popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function closeAdminPopup() {
+      document.getElementById('admin-popup').style.display = 'none';
     }
 
     loadEntries();
