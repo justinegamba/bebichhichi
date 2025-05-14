@@ -50,43 +50,49 @@ body::before {
 .bug34ter-banner {
   position: fixed;
   top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-bottom: 2px dashed #d4a5a5;
+  max-width: 1000px;
+  background-color: rgba(255, 255, 255, 0.95);
   padding: 10px 20px;
+  border-bottom: 2px dashed #ffb6c1;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 1000;
+  font-family: 'Comic Sans MS', cursive;
 }
 
 .bug34ter-banner h2 {
-  font-size: 1.5rem;
-  color: #88ccff;
   margin: 0;
+  font-size: 1.2rem;
+  color: #ff88aa;
+  white-space: nowrap;
 }
 
-.bug34ter-banner .buttons {
-  display: flex;
-  gap: 10px;
-}
-
-.bug34ter-banner .jelly-button {
-  text-decoration: none;
+.bug-buttons a {
+  width: 40px;
+  height: 40px;
   background-color: #ffd6e8;
   color: #333;
-  padding: 10px 18px;
-  border-radius: 15px;
+  font-size: 1.2rem;
   font-weight: bold;
-  transition: transform 0.3s;
+  border-radius: 10px;
   border: 2px solid #ffb6c1;
-  box-shadow: 2px 4px 10px rgba(0,0,0,0.1);
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-.bug34ter-banner .jelly-button:hover {
-  animation: jelly 0.6s ease;
-  background-color: #fff0f5;
+.bug-buttons a:hover {
+  background-color: #ffeef6;
+  transform: scale(1.05);
 }
 
 /* Main Layout */
