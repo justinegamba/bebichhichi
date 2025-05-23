@@ -331,3 +331,10 @@ body::before {
 .admin-login-popup button:hover {
   background-color: #ffeef6;
 }
+.guestbook-entry {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  border: 1px dashed #ffc0cb;
+}
