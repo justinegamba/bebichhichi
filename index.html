@@ -6,6 +6,7 @@
   <title>bebichhichi</title>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 </head>
 <body>
   <!-- Animated Sparkle -->
@@ -104,111 +105,107 @@
     </div>
   </div>
 
-  <!-- Supabase & Guestbook Script -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <!-- Guestbook Script -->
   <script>
-    const supabaseUrl = 'https://kzmdnctqosevqnhypblp.supabase.co';
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt6bWRuY3Rxb3NldnFuaHlwYmxwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxOTg2MjAsImV4cCI6MjA2Mjc3NDYyMH0.ff8OaEPbu8kxt6ZhP4Bco7Xrx9J4fX9ESUo8KzlcvuQ';
-    const supabase = supabase.createClient(supabaseUrl, supabaseKey);
-
-    const ADMIN_EMAIL = "gamba.jfg@gmail.com";
-    let isAdminUser = false;
-    let currentOffset = 0;
-    const limit = 5;
-
-    async function adminLogin() {
-      const email = document.getElementById('login-email').value;
-      const password = document.getElementById('login-password').value;
-
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
-
-      if (error) {
-        alert("login failed!");
-        return;
-      }
-
-      const { data: sessionData } = await supabase.auth.getSession();
-      const userEmail = sessionData.session?.user?.email;
-
-      if (userEmail === ADMIN_EMAIL) {
-        isAdminUser = true;
-        document.getElementById('logout-btn').style.display = 'block';
-        alert("logged in as admin!");
-        closeAdminPopup();
-        loadEntries(true);
-      } else {
-        alert("not an admin.");
-      }
-    }
-
-    async function logout() {
-      await supabase.auth.signOut();
-      isAdminUser = false;
-      document.getElementById('logout-btn').style.display = 'none';
-      loadEntries(true);
-    }
-
-    function isAdmin() {
-      return isAdminUser;
-    }
-
-    async function submitGuestbook() {
-      const name = document.getElementById('guest-name').value.trim() || 'anonymous';
-      const message = document.getElementById('guest-message').value.trim();
-      if (!message) return;
-
-      await supabase.from('guestbook').insert([{ name, message }]);
-      document.getElementById('guest-message').value = '';
-      document.getElementById('guest-name').value = '';
-      loadEntries(true);
-    }
-
-    async function deleteEntry(id) {
-      if (!isAdmin()) return;
-      await supabase.from('guestbook').delete().eq('id', id);
-      loadEntries(true);
-    }
-
-    async function loadEntries(reset = false) {
-      if (reset) currentOffset = 0;
-      const { data, error } = await supabase
-        .from('guestbook')
-        .select('*')
-        .order('created_at', { ascending: false })
-        .range(currentOffset, currentOffset + limit - 1);
-
-      const container = document.getElementById('guestbook-entries');
-      if (reset) container.innerHTML = '';
-
-      if (error) {
-        console.error('failed to load guestbook:', error);
-        return;
-      }
-
-      data.forEach(entry => {
-        const div = document.createElement('div');
-        div.className = 'guestbook-entry';
-        div.innerHTML = `<strong>${entry.name}</strong>: ${entry.message}`;
-        container.appendChild(div);
-      });
-
-      currentOffset += limit;
-    }
-
-    function loadMoreEntries() {
-      loadEntries();
-    }
-
-    function toggleAdminPopup() {
-      const popup = document.getElementById('admin-popup');
-      popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
-    }
-
-    function closeAdminPopup() {
-      document.getElementById('admin-popup').style.display = 'none';
-    }
-
     document.addEventListener('DOMContentLoaded', () => {
+      const supabase = supabase.createClient(
+        'https://kzmdnctqosevqnhypblp.supabase.co',
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt6bWRuY3Rxb3NldnFuaHlwYmxwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxOTg2MjAsImV4cCI6MjA2Mjc3NDYyMH0.ff8OaEPbu8kxt6ZhP4Bco7Xrx9J4fX9ESUo8KzlcvuQ'
+      );
+
+      const ADMIN_EMAIL = "gamba.jfg@gmail.com";
+      let isAdminUser = false;
+      let currentOffset = 0;
+      const limit = 5;
+
+      async function adminLogin() {
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+        const { error } = await supabase.auth.signInWithPassword({ email, password });
+        if (error) return alert("login failed!");
+
+        const { data: sessionData } = await supabase.auth.getSession();
+        const userEmail = sessionData.session?.user?.email;
+
+        if (userEmail === ADMIN_EMAIL) {
+          isAdminUser = true;
+          document.getElementById('logout-btn').style.display = 'block';
+          alert("logged in as admin!");
+          closeAdminPopup();
+          loadEntries(true);
+        } else {
+          alert("not an admin.");
+        }
+      }
+
+      async function logout() {
+        await supabase.auth.signOut();
+        isAdminUser = false;
+        document.getElementById('logout-btn').style.display = 'none';
+        loadEntries(true);
+      }
+
+      function isAdmin() {
+        return isAdminUser;
+      }
+
+      async function submitGuestbook() {
+        const name = document.getElementById('guest-name').value.trim() || 'anonymous';
+        const message = document.getElementById('guest-message').value.trim();
+        if (!message) return;
+
+        await supabase.from('guestbook').insert([{ name, message }]);
+        document.getElementById('guest-message').value = '';
+        document.getElementById('guest-name').value = '';
+        loadEntries(true);
+      }
+
+      async function deleteEntry(id) {
+        if (!isAdmin()) return;
+        await supabase.from('guestbook').delete().eq('id', id);
+        loadEntries(true);
+      }
+
+      async function loadEntries(reset = false) {
+        if (reset) currentOffset = 0;
+
+        const { data, error } = await supabase
+          .from('guestbook')
+          .select('*')
+          .order('created_at', { ascending: false })
+          .range(currentOffset, currentOffset + limit - 1);
+
+        const container = document.getElementById('guestbook-entries');
+        if (reset) container.innerHTML = '';
+
+        if (error) {
+          console.error('failed to load guestbook:', error);
+          return;
+        }
+
+        data.forEach(entry => {
+          const div = document.createElement('div');
+          div.className = 'guestbook-entry';
+          div.innerHTML = `<strong>${entry.name}</strong>: ${entry.message}`;
+          container.appendChild(div);
+        });
+
+        currentOffset += limit;
+      }
+
+      function loadMoreEntries() {
+        loadEntries();
+      }
+
+      function toggleAdminPopup() {
+        const popup = document.getElementById('admin-popup');
+        popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+      }
+
+      function closeAdminPopup() {
+        document.getElementById('admin-popup').style.display = 'none';
+      }
+
       loadEntries();
     });
   </script>
