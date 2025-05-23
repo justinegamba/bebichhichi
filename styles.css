@@ -338,3 +338,18 @@ body::before {
   margin-bottom: 8px;
   border: 1px dashed #ffc0cb;
 }
+.top-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  width: 100%;
+  padding: 20px 0;
+}
+.title-box,
+.guestbook-box {
+  flex: 1 1 300px; /* grow, shrink, min width */
+  max-width: 700px;
+  box-sizing: border-box;
+}
