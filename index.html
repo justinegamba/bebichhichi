@@ -82,7 +82,7 @@
         <h2>💌 guestbook</h2>
         <input type="text" id="guest-name" placeholder="name (🌸 optional)">
         <textarea id="guest-message" rows="3" placeholder="write a cute message 🐰🎀..."></textarea>
-        <button onclick="submitGuestbook()">leave a mark 💖</button>
+        <button onclick="submit-btn()">leave a mark 💖</button>
         <h3 class="guestbook-subtitle">other visitors</h3>
         <div id="guestbook-entries"></div>
         <button id="load-more" onclick="loadMoreEntries()">load more 💬</button>
@@ -112,6 +112,7 @@
         'https://kzmdnctqosevqnhypblp.supabase.co',
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt6bWRuY3Rxb3NldnFuaHlwYmxwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcxOTg2MjAsImV4cCI6MjA2Mjc3NDYyMH0.ff8OaEPbu8kxt6ZhP4Bco7Xrx9J4fX9ESUo8KzlcvuQ'
       );
+document.getElementById('submit-btn').addEventListener('click', submitGuestbook);
 
       const ADMIN_EMAIL = "gamba.jfg@gmail.com";
       let isAdminUser = false;
